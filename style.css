@@ -1,0 +1,268 @@
+/* STYLISH FONT */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital@1&display=swap');
+/* OTHER FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+:root {
+    /*  FONTS	*/
+    --stylish-font: 'Montserrat Alternates', sans-serif;
+    --pirmary-font: 'Roboto Mono', monospace;
+    /*  GRADIENTS	*/
+    --primary-gradient: linear-gradient(to top left, #c1121f, #2a9d8f, #f8961e);
+    --secondary-gradient: linear-gradient(to bottom left, #ffd78a, #f4762d);
+    /*   COLORS   */
+    --primar-color: #FFE5B4;
+    --secondary-color: #F5F5DC;
+}
+
+/* UNIVERSAL SETTINGS */
+/**::before,
+*::after*/ 
+*{
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*    overflow-x: hidden;*/
+
+/* MAIN STYLING */
+main {
+    height: 100%;
+    background: var(--primary-gradient);
+    background-size: 400% 400%;
+    animation-name: main_animate;
+    animation-delay: .2s;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease;
+}
+
+@keyframes main_animate {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    /*75% {
+          background-position: 100% 100%;
+      }*/
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* CONTAIENR STYLING */
+div.components_container {
+    padding: 0 60px;
+}
+
+div.components_container> :nth-child(-n+1) {
+    font-family: var(--pirmary-font);
+    text-decoration: underline;
+    color: var(--primar-color);
+    font-weight: bolder;
+}
+
+div.div.component_index {
+    padding: 10px 0;
+}
+
+div.component_index>h2 {
+    font-size: 2em;
+    font-family: var(--pirmary-font);
+    color: var(--secondary-color);
+}
+
+/************************************  STYLING MASKED TEXT  ******************************************/
+div.text_masking {
+    text-align: center;
+    padding: 20px 0;
+}
+
+div.text_masking>h1 {
+    font-family: var(--stylish-font);
+    font-size: 9em;
+    font-weight: 900;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    background-image: url(https://picsum.photos/id/10/1000);
+    /*    background-repeat: no-repeat;*/
+    background-position: 0 50%;
+}
+
+/************************************  STYLING BORDER GRADIENT  ******************************************/
+
+div.border_gradient {
+    text-align: center;
+    padding: 20px 0;
+}
+
+div.border_gradient>a {
+    color: var(--secondary-color);
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 2em;
+    border: 6px solid transparent;
+    border-image-source: linear-gradient(to top right, red, yellow, green, blue);
+    border-image-slice: 1;
+    animation-name: borderG;
+    animation-delay: .2s;
+    animation-timing-function: ease;
+    animation-iteration-count: infinite;
+    animation-duration: 4s;
+}
+
+@keyframes borderG {
+    0% {
+        border-image-source: linear-gradient(to top right, blue, red, yellow, green);
+    }
+
+    50% {
+        border-image-source: linear-gradient(to top right, blue, red);
+    }
+
+    75% {
+        border-image-source: linear-gradient(to top left, yellow, green);
+    }
+
+    100% {
+        border-image-source: linear-gradient(to top right, red, yellow, green, blue);
+    }
+}
+
+/************************************  IAMGE OVERLAY GRADIENT  ******************************************/
+div.overlay_container {
+    padding: 20px 0;
+    position: relative;
+}
+
+div.image_overlay_gradient {
+    min-height: 600px;
+    background-image: linear-gradient(to right, transparent, 30%, rgba(2, 48, 71, .8)), url(https://picsum.photos/id/49/1465);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 60%;
+}
+
+h1.overlay_title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.overlay_title :nth-child(-n+2) {
+    display: block;
+}
+
+.overlay_title> :first-child {
+    font-family: var(--pirmary-font);
+    font-size: 2.1em;
+    color: var(--primar-color);
+}
+
+.overlay_title> :last-child {
+    font-family: var(--stylish-font);
+}
+
+/************************************  TOOLTIP STYLING  ******************************************/
+
+div.icons_container {
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    /*   border: 2px solid blue; */
+}
+
+div.tooltip {
+    position: relative;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    background: #000;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 2px 4px 6px -3px rgba(0, 0, 0, 1);
+    cursor: pointer;
+    transition: all 0.15s cubic-bezier(0.49, 0.16, 0.72, 1),
+        color 239ms ease-out 6ms;
+    margin-right: 20px;
+}
+
+div.tooltip:hover> :nth-child(1) {
+    visibility: visible;
+    bottom: 55px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 2px 3px 4px -3px rgba(0, 0, 0, 0.5);
+}
+
+div.tooltip> :nth-child(2) {
+    display: inline-block;
+    font-size: 1.8em;
+    color: #fff;
+}
+
+div.tooltip> :first-child {
+    position: absolute;
+    left: 50%;
+    bottom: 20px;
+/*    z-index: -1;*/
+    transform: translate(-50%, -50%);
+    padding: 5px;
+    border-radius: 5px;
+    visibility: hidden;
+    transition: all 0.15s cubic-bezier(0.49, 0.16, 0.72, 1),
+        color 239ms ease-out 6ms;
+}
+
+div.tooltip> :first-child::after {
+    content: "";
+    position: absolute;
+    bottom: -11px;
+    left: 50%;
+    transform: translate(-50%);
+    border: 6px;
+    border-style: solid;
+    /*   border-color: #3b5998 transparent transparent transparent; */
+    background: transparent !important;
+}
+
+/*  COLOR CHANGING  */
+
+div.facebook:hover,
+div.facebook> :first-child,
+div.facebook> :first-child::after {
+    background: #3b5998;
+    border-color: #3b5998 transparent transparent transparent;
+}
+
+div.twitter:hover,
+div.twitter> :first-child,
+div.twitter> :first-child::after {
+    background: #00acee;
+    border-color: #00acee transparent transparent transparent;
+}
+
+div.github:hover,
+div.github> :first-child,
+div.github> :first-child::after {
+    background: #171515;
+    border-color: #171515 transparent transparent transparent;
+}
+
+div.instagram:hover,
+div.instagram> :first-child,
+div.instagram> :first-child::after {
+    background: linear-gradient(to left, orange, purple);
+    border-color: #962fbf transparent transparent transparent;
+}
